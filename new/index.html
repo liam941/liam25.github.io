@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday!</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #f8e0e0;
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            margin: 0;
+        }
+        .envelope {
+            width: 200px;
+            height: 120px;
+            background-color: #fff;
+            border: 2px solid #ff6f61;
+            border-radius: 10px;
+            position: relative;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        .envelope:before {
+            content: '';
+            position: absolute;
+            top: -15px;
+            left: 0;
+            right: 0;
+            height: 15px;
+            background-color: #ff6f61;
+            border-radius: 10px 10px 0 0;
+        }
+        .photo {
+            display: none;
+            margin-top: 20px;
+            width: 200px;
+            border-radius: 10px;
+            transition: opacity 0.5s ease;
+        }
+        .photo.show {
+            display: block;
+            opacity: 1;
+        }
+        .birthdayText {
+            display: none;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            margin-top: 20px;
+            font-size: 1.2em;
+            color: black;
+        }
+        .birthdayText.show {
+            display: block;
+            opacity: 1;
+        }
+        .happyBirthday {
+            display: none;
+            color: pink;
+            font-weight: bold;
+            margin-top: 10px;
+            font-size: 2em; /* Increase the font size here */
+        }
+        .happyBirthday.show {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="envelope" id="envelope">
+        <h2 style="margin: 0; padding: 40px 0;">🎉</h2>
+    </div>
+    <img id="birthdayPhoto" class="photo" src="pollyn.jpg" alt="Birthday Photo">
+    <div id="happyBirthday" class="happyBirthday">Happy Birthday, Pollyn!</div>
+    <div id="birthdayText" class="birthdayText">Today we celebrate you and all the joy you bring into our lives. I hope this year is filled with exciting adventures, laughter, and all the things that make you smile. May your dreams come true, and may every moment be as wonderful as you are. Enjoy your special day to the fullest!</div>
+
+    <script>
+        const envelope = document.getElementById('envelope');
+        const photo = document.getElementById('birthdayPhoto');
+        const text = document.getElementById('birthdayText');
+        const happyBirthday = document.getElementById('happyBirthday');
+
+        envelope.addEventListener('click', () => {
+            photo.classList.toggle('show');
+            envelope.style.transform = envelope.style.transform === 'rotateX(180deg)' ? 'rotateX(0)' : 'rotateX(180deg)';
+        });
+
+        photo.addEventListener('click', () => {
+            text.classList.toggle('show');
+            happyBirthday.classList.toggle('show');
+        });
+    </script>
+</body>
+</html>
